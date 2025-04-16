@@ -32,14 +32,15 @@ def get_iss_location():
         timestamp = r['timestamp']
         # convert timestamp to human readable date and time (out of epoch)
         dt_obj = datetime.datetime.fromtimestamp(timestamp)
-        dtime = dt_obj.strftime('%Y-%m-%d-%H:%M:%S')
+        #dtime = dt_obj.strftime('%Y-%m-%d-%H:%M:%S')
+        dtime = dt_obj.strftime('%m/%d/%Y---%H:%M:%S')  # (CHANGED BY ME)
 
         # get longitude and latitude
         long = r['iss_position']['longitude']
         lat = r['iss_position']['latitude']
 
         # log output for visibility
-        logger.info("Currently available data for ISS position...")
+        logger.info("Currently available data for ISS position...") # (ADDED BY ME)
         logger.info("Timestamp: " + dtime)
         logger.info("Longitude: " + long)
         logger.info("Latitude: " + lat)
